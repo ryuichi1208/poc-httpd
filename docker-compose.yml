@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  httpd:
+    hostname: httpd.dev.com
+    container_name: httpd.dev.com
+    build:
+      context: ./httpd
+      dockerfile: Dockerfile
+    cap_add:
+      - ALL
+    ports:
+      - 8080:80/tcp
+      - 8443:443/tcp
+    volumes:
+      - "./httpd/conf/httpd.conf:/usr/local/apache2/conf/httpd.conf"
+      - "./httpd/conf/modules.conf:/usr/local/apache2/conf/modules.conf"
+      - "./httpd/conf/ssl.conf:/usr/local/apache2/conf/ssl.conf"

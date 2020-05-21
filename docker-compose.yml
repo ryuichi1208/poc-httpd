@@ -12,6 +12,9 @@ services:
     ports:
       - 8080:80/tcp
       - 8443:443/tcp
+    sysctls:
+      net.core.somaxconn: 1024
+      net.ipv4.tcp_syncookies: 0
     volumes:
       - "./httpd/conf/httpd.conf:/usr/local/apache2/conf/httpd.conf"
       - "./httpd/conf/modules.conf:/usr/local/apache2/conf/modules.conf"

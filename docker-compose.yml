@@ -19,6 +19,10 @@ services:
       - "./httpd/conf/httpd.conf:/usr/local/apache2/conf/httpd.conf"
       - "./httpd/conf/modules.conf:/usr/local/apache2/conf/modules.conf"
       - "./httpd/conf/ssl.conf:/usr/local/apache2/conf/ssl.conf"
+  memcache:
+    hostname: memcacne.dev
+    container_name: memcache.dev
+    image: memcached:alpine
 
 networks:
   default:
